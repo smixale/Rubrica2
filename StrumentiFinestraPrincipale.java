@@ -1,18 +1,15 @@
 import java.awt.FlowLayout;
-
 import javax.swing.JButton;
 import javax.swing.JPanel;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
-public class BarraPulsanti extends JPanel{
+public class StrumentiFinestraPrincipale extends JPanel{
     
     private JButton nuovo = new JButton("nuovo");
     private JButton modifica = new JButton("modifica");
     private JButton elimina = new JButton("elimina");
-    AzioniPulsanti azioni = new AzioniPulsanti();
+    
 
-    public BarraPulsanti (){
+    public StrumentiFinestraPrincipale (AzioniPulsanti azioni){
         setLayout(new FlowLayout(FlowLayout.CENTER,20,10));
 
         nuovo.setAlignmentX(LEFT_ALIGNMENT);

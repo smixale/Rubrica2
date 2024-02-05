@@ -3,19 +3,29 @@ import java.awt.BorderLayout;
 
 public class FramePrincipale extends JFrame{
 
+    AzioniPulsanti azioni = new AzioniPulsanti(this);
+    StrumentiFinestraPrincipale strumenti = new StrumentiFinestraPrincipale(azioni);
+    StrumentiForm strumentiForm = new StrumentiForm(azioni);
 
-    
     public FramePrincipale (){
 
         super("frame principale");
-
         setLayout(new BorderLayout());
-        
-        BarraPulsanti pulsanti = new BarraPulsanti();
-        add(pulsanti,BorderLayout.PAGE_END);
-
+        CaricaFinestraPrincipale();
 
         AspettoFrame();
+    }
+
+    protected void CaricaFinestraPrincipale(){
+        //removeAll();
+        
+        add(strumenti,BorderLayout.PAGE_END);
+    }
+
+    protected void CaricaFinestraForm(){
+        //removeAll();
+        
+        add(strumentiForm,BorderLayout.PAGE_END);
     }
 
     private void AspettoFrame(){
