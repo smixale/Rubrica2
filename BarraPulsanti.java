@@ -5,7 +5,7 @@ import javax.swing.JPanel;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class BarraPulsanti extends JPanel{
+public class BarraPulsanti extends JPanel implements ActionListener{
     
     private JButton nuovo = new JButton("nuovo");
     private JButton modifica = new JButton("modifica");
@@ -22,32 +22,24 @@ public class BarraPulsanti extends JPanel{
         add(modifica);
         add(elimina);
 
-        Azioni();
+        nuovo.addActionListener(this);
+        modifica.addActionListener(this);
+        elimina.addActionListener(this);
     }
 
-    private void Azioni (){
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        JButton premuto = (JButton) e.getSource();
 
-        nuovo.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e){
-                System.out.println("pulsante nuovo");
-            }
-        });
-
-        modifica.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e){
-                System.out.println("pulsante modifica");
-            }
-        });
-
-        elimina.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e){
-                System.out.println("pulsante elimina");
-            }
-        });
-
+        if (premuto == nuovo) {
+            System.out.println("pulsante nuovo");
+        }
+        if (premuto == modifica) {
+            System.out.println("pulsante modifica");
+        }
+        if (premuto == elimina) {
+            System.out.println("pulsante elimina");
+        }
     }
     
 }
