@@ -19,7 +19,7 @@ public class FramePrincipale extends JFrame{
     }
 
     private void AspettoFrame(){
-        setSize(800,800);
+        setSize(500,500);
         setLocationRelativeTo(null);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setVisible(true);
