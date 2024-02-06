@@ -14,25 +14,28 @@ public class AzioniPulsanti implements ActionListener{
     @Override
     public void actionPerformed(ActionEvent e) {
         JButton premuto = (JButton) e.getSource();
-        String nome = premuto.getName();
+        String testo = premuto.getText();
 
-        if (nome.equals("nuovo")) {
+        if (testo == "nuovo") {
             System.out.println("pulsante nuovo");
             frame.CaricaFinestraForm();
         }
-        if (nome == "modifica") {
+        if (testo == "modifica") {
             System.out.println("pulsante modifica");
         }
-        if (nome == "elimina") {
+        if (testo == "elimina") {
             System.out.println("pulsante elimina");
         }
-        if (nome == "salva") {
+        if (testo == "salva") {
             System.out.println("pulsante salva");
         }
-        if (nome == "annulla") {
+        if (testo == "annulla") {
             System.out.println("pulsante annulla");
             frame.CaricaFinestraPrincipale();
         }
     }
     
+    public void prova(){
+        System.out.println("prova azioni fghbwt");
+    }
 }

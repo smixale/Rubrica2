@@ -11,7 +11,7 @@ public class FramePrincipale extends JFrame{
 
         super("frame principale");
         setLayout(new BorderLayout());
-        CaricaFinestraPrincipale();
+        add(strumenti,BorderLayout.PAGE_END);
 
         AspettoFrame();
     }
@@ -19,13 +19,16 @@ public class FramePrincipale extends JFrame{
     protected void CaricaFinestraPrincipale(){
         //removeAll();
         
+        remove(strumentiForm);
         add(strumenti,BorderLayout.PAGE_END);
+        revalidate();
     }
 
     protected void CaricaFinestraForm(){
         //removeAll();
-        
+        remove(strumenti);
         add(strumentiForm,BorderLayout.PAGE_END);
+        revalidate();
     }
 
     private void AspettoFrame(){
