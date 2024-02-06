@@ -22,6 +22,7 @@ public class FramePrincipale extends JFrame{
         remove(strumentiForm);
         add(strumenti,BorderLayout.PAGE_END);
         revalidate();
+        repaint();
     }
 
     protected void CaricaFinestraForm(){
@@ -29,6 +30,7 @@ public class FramePrincipale extends JFrame{
         remove(strumenti);
         add(strumentiForm,BorderLayout.PAGE_END);
         revalidate();
+        repaint();
     }
 
     private void AspettoFrame(){
