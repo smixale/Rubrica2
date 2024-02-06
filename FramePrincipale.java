@@ -6,6 +6,7 @@ public class FramePrincipale extends JFrame{
     AzioniPulsanti azioni = new AzioniPulsanti(this);
     StrumentiFinestraPrincipale strumenti = new StrumentiFinestraPrincipale(azioni);
     StrumentiForm strumentiForm = new StrumentiForm(azioni);
+    Form form = new Form();
 
     public FramePrincipale (){
 
@@ -28,6 +29,7 @@ public class FramePrincipale extends JFrame{
     protected void CaricaFinestraForm(){
         //removeAll();
         remove(strumenti);
+        add(form,BorderLayout.CENTER);
         add(strumentiForm,BorderLayout.PAGE_END);
         revalidate();
         repaint();
