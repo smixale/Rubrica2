@@ -4,14 +4,22 @@ import java.awt.BorderLayout;
 public class FramePrincipale extends JFrame{
 
     AzioniPulsanti azioni = new AzioniPulsanti(this);
-    StrumentiFinestraPrincipale strumenti = new StrumentiFinestraPrincipale(azioni);
-    StrumentiForm strumentiForm = new StrumentiForm(azioni);
     Form form = new Form();
+    StrumentiFinestraPrincipale strumenti = new StrumentiFinestraPrincipale(azioni);
+    StrumentiForm strumentiForm = new StrumentiForm(azioni,form);
 
     public FramePrincipale (){
 
         super("frame principale");
         setLayout(new BorderLayout());
+
+        strumentiForm.setFormListener(new FormListener(){
+            @Override
+            public void formEventListener(EventoForm ef){
+                System.out.println("AIUTATEMI PERCHE MI STO PERDENDO");
+            }
+        });
+
         add(strumenti,BorderLayout.PAGE_END);
 
         AspettoFrame();

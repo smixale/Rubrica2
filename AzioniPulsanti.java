@@ -34,8 +34,10 @@ public class AzioniPulsanti implements ActionListener{
             frame.CaricaFinestraPrincipale();
         }
     }
-    
-    public void prova(){
-        System.out.println("prova azioni fghbwt");
+
+    public void actionPerformed(ActionEvent e, Persona persona) {
+        JButton premuto = (JButton) e.getSource();
+        System.out.println("prova pulsante persona");
+        
     }
 }

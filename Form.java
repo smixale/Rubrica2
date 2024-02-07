@@ -7,20 +7,21 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 
 public class Form extends JPanel{
+
     private JLabel etichettaNome;
-    private JTextField campoNome;
+    public JTextField campoNome;
 
     private JLabel etichettaCognome;
-    private JTextField campoCognome;
+    public JTextField campoCognome;
 
     private JLabel etichettaIndirizzo;
-    private JTextField campoIndirizzo;
+    public JTextField campoIndirizzo;
 
     private JLabel etichettaTelefono;
-    private JTextField campoTelefono;
+    public JTextField campoTelefono;
 
     private JLabel etichettaEta;
-    private JTextField campoEta;
+    public JTextField campoEta;
 
     public Form(){
 
