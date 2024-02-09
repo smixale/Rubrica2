@@ -12,7 +12,6 @@ import java.util.ArrayList;
 public class FramePrincipale extends JFrame{
 
     AzioniPulsanti azioni = new AzioniPulsanti(this);
-    ArrayList<Persona> rubrica;
     Controller controller;
 
 
@@ -23,10 +22,9 @@ public class FramePrincipale extends JFrame{
     private JTextArea pannelloRubrica = new JTextArea();
     //private TabellaRubrica tabellaRubrica = new TabellaRubrica();
 
-    public FramePrincipale (ArrayList<Persona> rubrica){
+    public FramePrincipale (){
         super("frame principale");
 
-        this.rubrica = rubrica;
         this.controller = new Controller();
 
         strumentiForm.setFormListener(new FormListener(){

@@ -8,8 +8,7 @@ public class Main {
 
     public static void main(String[] args) {
 
-        ArrayList<Persona> rubrica = new ArrayList<>();
-        FramePrincipale FPrincipale = new FramePrincipale(rubrica);
+        FramePrincipale FPrincipale = new FramePrincipale();
     }
     
 }
