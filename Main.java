@@ -1,10 +1,11 @@
+import java.util.ArrayList;
 
 public class Main {
 
     public static void main(String[] args) {
 
-        FramePrincipale FPrincipale = new FramePrincipale();
-
+        ArrayList<Persona> rubrica = new ArrayList<>();
+        FramePrincipale FPrincipale = new FramePrincipale(rubrica);
     }
     
 }
