@@ -14,6 +14,7 @@ public class FramePrincipale extends JFrame{
 
     StrumentiFinestraPrincipale strumenti = new StrumentiFinestraPrincipale(azioni);
     private JTextArea pannelloRubrica = new JTextArea();
+    private TabellaRubrica tabellaRubrica = new TabellaRubrica();
 
     public FramePrincipale (ArrayList<Persona> rubrica){
 
@@ -42,7 +43,7 @@ public class FramePrincipale extends JFrame{
         remove(strumentiForm);
         remove(form);
 
-        add(pannelloRubrica,BorderLayout.CENTER);
+        add(tabellaRubrica,BorderLayout.CENTER);
         add(strumenti,BorderLayout.PAGE_END);
         revalidate();
         repaint();
@@ -51,7 +52,7 @@ public class FramePrincipale extends JFrame{
     //caricamento componenti form aggiunta persona in rubrica
     protected void CaricaFinestraForm(){
         remove(strumenti);
-        remove(pannelloRubrica);
+        remove(tabellaRubrica);
 
         this.form.resetCampi();
         add(form,BorderLayout.CENTER);
