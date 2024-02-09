@@ -1,5 +1,8 @@
+package src.view;
 import javax.swing.JButton;
 import javax.swing.JPanel;
+
+
 import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -23,9 +26,8 @@ public class StrumentiForm extends JPanel{
                 String cognome = form.campoCognome.getText();
                 String indirizzo = form.campoIndirizzo.getText();
                 String telefono = form.campoTelefono.getText();
-                Persona persona = new Persona(nome, cognome, indirizzo, telefono, 9999);
 
-                EventoForm eventoForm = new EventoForm(this, persona);
+                EventoForm eventoForm = new EventoForm(this, nome, cognome, indirizzo, telefono, 999);
 
                 if (formListener != null) {
                     formListener.formEventListener(eventoForm);

@@ -1,13 +1,16 @@
+package src.view;
 import java.util.List;
 
 import javax.swing.table.AbstractTableModel;
+
+import src.model.Persona;
 
 public class ModelloTabellaRubrica extends AbstractTableModel{
 
     List <Persona> rubrica;
 
     public ModelloTabellaRubrica (){
-        
+
     }
 
     @Override

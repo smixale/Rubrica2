@@ -1,5 +1,10 @@
+package src.view;
+
 import javax.swing.JFrame;
 import javax.swing.JTextArea;
+
+import src.model.Persona;
+import src.controller.Controller;
 
 import java.awt.BorderLayout;
 import java.util.ArrayList;
@@ -8,33 +13,43 @@ public class FramePrincipale extends JFrame{
 
     AzioniPulsanti azioni = new AzioniPulsanti(this);
     ArrayList<Persona> rubrica;
+    Controller controller;
+
 
     Form form = new Form();
     StrumentiForm strumentiForm = new StrumentiForm(azioni,form);
 
     StrumentiFinestraPrincipale strumenti = new StrumentiFinestraPrincipale(azioni);
     private JTextArea pannelloRubrica = new JTextArea();
-    private TabellaRubrica tabellaRubrica = new TabellaRubrica();
+    //private TabellaRubrica tabellaRubrica = new TabellaRubrica();
 
     public FramePrincipale (ArrayList<Persona> rubrica){
-
         super("frame principale");
+
         this.rubrica = rubrica;
-        setLayout(new BorderLayout());
+        this.controller = new Controller();
 
         strumentiForm.setFormListener(new FormListener(){
             @Override
             public void formEventListener(EventoForm ef){
-                rubrica.add(ef.getPersona());
-                System.out.println("AIUTATEMI PERCHE MI STO PERDENDO " + ef.getPersona().getNome());
-                pannelloRubrica.append(ef.getPersona().getNome() + "\n");
+                System.out.println("AIUTATEMI PERCHE MI STO PERDENDO " + ef.getNome());
+
+                String nome  = ef.getNome();
+                String cognome = ef.getCognome();
+                String indirizzo = ef.getIndirizzo();
+                String telefono = ef.getTelefono();
+                int eta = ef.getEta();
+
+                controller.addPersona(nome, cognome, indirizzo, telefono, eta);
                 CaricaFinestraPrincipale();
             }
         });
 
-        add(pannelloRubrica,BorderLayout.CENTER);
-        add(strumenti,BorderLayout.PAGE_END);
 
+
+        setLayout(new BorderLayout());
+        //add(pannelloRubrica,BorderLayout.CENTER);
+        add(strumenti,BorderLayout.PAGE_END);
         AspettoFrame();
     }
 
@@ -43,7 +58,7 @@ public class FramePrincipale extends JFrame{
         remove(strumentiForm);
         remove(form);
 
-        add(tabellaRubrica,BorderLayout.CENTER);
+        //add(tabellaRubrica,BorderLayout.CENTER);
         add(strumenti,BorderLayout.PAGE_END);
         revalidate();
         repaint();
@@ -52,7 +67,7 @@ public class FramePrincipale extends JFrame{
     //caricamento componenti form aggiunta persona in rubrica
     protected void CaricaFinestraForm(){
         remove(strumenti);
-        remove(tabellaRubrica);
+        //remove(tabellaRubrica);
 
         this.form.resetCampi();
         add(form,BorderLayout.CENTER);
@@ -67,5 +82,13 @@ public class FramePrincipale extends JFrame{
         setLocationRelativeTo(null);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setVisible(true);
+    }
+
+    public Controller getController() {
+        return controller;
+    }
+
+    public void setController(Controller controller) {
+        this.controller = controller;
     }
 }

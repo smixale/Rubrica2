@@ -1,4 +1,8 @@
+package src;
 import java.util.ArrayList;
+
+import src.model.Persona;
+import src.view.FramePrincipale;
 
 public class Main {
 

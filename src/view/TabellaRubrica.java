@@ -1,9 +1,12 @@
+package src.view;
 import java.awt.BorderLayout;
 import java.util.List;
 
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
+
+import src.model.Persona;
 
 public class TabellaRubrica extends JPanel{
 
