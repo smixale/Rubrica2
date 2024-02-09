@@ -1,4 +1,6 @@
 import javax.swing.JFrame;
+import javax.swing.JTextArea;
+
 import java.awt.BorderLayout;
 import java.util.ArrayList;
 
@@ -11,6 +13,7 @@ public class FramePrincipale extends JFrame{
     StrumentiForm strumentiForm = new StrumentiForm(azioni,form);
 
     StrumentiFinestraPrincipale strumenti = new StrumentiFinestraPrincipale(azioni);
+    private JTextArea pannelloRubrica = new JTextArea();
 
     public FramePrincipale (ArrayList<Persona> rubrica){
 
@@ -23,10 +26,12 @@ public class FramePrincipale extends JFrame{
             public void formEventListener(EventoForm ef){
                 rubrica.add(ef.getPersona());
                 System.out.println("AIUTATEMI PERCHE MI STO PERDENDO " + ef.getPersona().getNome());
+                pannelloRubrica.append(ef.getPersona().getNome() + "\n");
                 CaricaFinestraPrincipale();
             }
         });
 
+        add(pannelloRubrica,BorderLayout.CENTER);
         add(strumenti,BorderLayout.PAGE_END);
 
         AspettoFrame();
@@ -35,6 +40,9 @@ public class FramePrincipale extends JFrame{
     //caricamento componenti pagina principale rubrica
     protected void CaricaFinestraPrincipale(){        
         remove(strumentiForm);
+        remove(form);
+
+        add(pannelloRubrica,BorderLayout.CENTER);
         add(strumenti,BorderLayout.PAGE_END);
         revalidate();
         repaint();
@@ -43,6 +51,9 @@ public class FramePrincipale extends JFrame{
     //caricamento componenti form aggiunta persona in rubrica
     protected void CaricaFinestraForm(){
         remove(strumenti);
+        remove(pannelloRubrica);
+
+        this.form.resetCampi();
         add(form,BorderLayout.CENTER);
         add(strumentiForm,BorderLayout.PAGE_END);
         revalidate();

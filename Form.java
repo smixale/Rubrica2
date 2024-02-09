@@ -113,4 +113,12 @@ public class Form extends JPanel{
         gbc.insets = new Insets(3, 2, 0, 0);
         add(campoEta,gbc);
     }
+
+    public void resetCampi(){
+        campoNome.setText("");
+        campoCognome.setText("");
+        campoIndirizzo.setText("");
+        campoTelefono.setText("");
+        campoEta.setText("");
+    }
 }
