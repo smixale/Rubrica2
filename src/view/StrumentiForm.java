@@ -26,8 +26,9 @@ public class StrumentiForm extends JPanel{
                 String cognome = form.campoCognome.getText();
                 String indirizzo = form.campoIndirizzo.getText();
                 String telefono = form.campoTelefono.getText();
+                String eta = form.campoEta.getText();
 
-                EventoForm eventoForm = new EventoForm(this, nome, cognome, indirizzo, telefono, 999);
+                EventoForm eventoForm = new EventoForm(this, nome, cognome, indirizzo, telefono, eta);
 
                 if (formListener != null) {
                     formListener.formEventListener(eventoForm);

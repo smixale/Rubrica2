@@ -1,6 +1,7 @@
 package src.view;
 
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import javax.swing.JTextArea;
 
 import src.model.Persona;
@@ -40,9 +41,13 @@ public class FramePrincipale extends JFrame{
                 String telefono = ef.getTelefono();
                 int eta = ef.getEta();
 
-                controller.addPersona(nome, cognome, indirizzo, telefono, eta);
-                tabellaRubrica.aggiorna();
-                CaricaFinestraPrincipale();
+                if (ef.isValido()) {                    
+                    controller.addPersona(nome, cognome, indirizzo, telefono, eta);
+                    tabellaRubrica.aggiorna();
+                    CaricaFinestraPrincipale();
+                }else{
+                    JOptionPane.showMessageDialog(null, "Attenzione dati mancanti o non validi", "Attenzione", JOptionPane.WARNING_MESSAGE);
+                }
             }
         });
 
