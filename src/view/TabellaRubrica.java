@@ -24,6 +24,10 @@ public class TabellaRubrica extends JPanel{
     }
     
     public void setData(List <Persona> rubrica){
+        modelloTabella.setData(rubrica);
+    }
 
+    public void aggiorna(){
+        modelloTabella.fireTableDataChanged();
     }
 }

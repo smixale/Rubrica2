@@ -19,13 +19,15 @@ public class FramePrincipale extends JFrame{
     StrumentiForm strumentiForm = new StrumentiForm(azioni,form);
 
     StrumentiFinestraPrincipale strumenti = new StrumentiFinestraPrincipale(azioni);
-    private JTextArea pannelloRubrica = new JTextArea();
-    //private TabellaRubrica tabellaRubrica = new TabellaRubrica();
+    private TabellaRubrica tabellaRubrica = new TabellaRubrica();
+
+
 
     public FramePrincipale (){
         super("frame principale");
 
         this.controller = new Controller();
+        tabellaRubrica.setData(controller.getRubrica());
 
         strumentiForm.setFormListener(new FormListener(){
             @Override
@@ -39,6 +41,7 @@ public class FramePrincipale extends JFrame{
                 int eta = ef.getEta();
 
                 controller.addPersona(nome, cognome, indirizzo, telefono, eta);
+                tabellaRubrica.aggiorna();
                 CaricaFinestraPrincipale();
             }
         });
@@ -46,7 +49,7 @@ public class FramePrincipale extends JFrame{
 
 
         setLayout(new BorderLayout());
-        //add(pannelloRubrica,BorderLayout.CENTER);
+        add(tabellaRubrica,BorderLayout.CENTER);
         add(strumenti,BorderLayout.PAGE_END);
         AspettoFrame();
     }
@@ -56,7 +59,7 @@ public class FramePrincipale extends JFrame{
         remove(strumentiForm);
         remove(form);
 
-        //add(tabellaRubrica,BorderLayout.CENTER);
+        add(tabellaRubrica,BorderLayout.CENTER);
         add(strumenti,BorderLayout.PAGE_END);
         revalidate();
         repaint();
@@ -65,7 +68,7 @@ public class FramePrincipale extends JFrame{
     //caricamento componenti form aggiunta persona in rubrica
     protected void CaricaFinestraForm(){
         remove(strumenti);
-        //remove(tabellaRubrica);
+        remove(tabellaRubrica);
 
         this.form.resetCampi();
         add(form,BorderLayout.CENTER);
