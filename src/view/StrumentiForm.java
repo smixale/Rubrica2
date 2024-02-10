@@ -1,5 +1,6 @@
 package src.view;
 import javax.swing.JButton;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 
@@ -28,11 +29,16 @@ public class StrumentiForm extends JPanel{
                 String telefono = form.campoTelefono.getText();
                 String eta = form.campoEta.getText();
 
-                EventoForm eventoForm = new EventoForm(this, nome, cognome, indirizzo, telefono, eta);
-
-                if (formListener != null) {
-                    formListener.formEventListener(eventoForm);
+                //verifico che i dati siano validi e in caso creo un nuovo evento form
+                if (campiNonVuoti(nome, cognome, indirizzo, telefono, eta) && soloNumeri(eta) && soloNumeri(telefono)) {                
+                    EventoForm eventoForm = new EventoForm(this, nome, cognome, indirizzo, telefono, Integer.parseInt(eta));
+                    if (formListener != null) {
+                        formListener.formEventListener(eventoForm);
+                    }
+                }else{
+                    JOptionPane.showMessageDialog(null, "Attenzione dati mancanti o non validi", "Attenzione", JOptionPane.WARNING_MESSAGE);
                 }
+
             }
         });
 
@@ -41,5 +47,20 @@ public class StrumentiForm extends JPanel{
 
     public void setFormListener(FormListener formListener){
         this.formListener = formListener;
+    }
+
+    //verifico che siano stati inseriti tutti i dati
+    private boolean campiNonVuoti (String nome, String cognome, String indirizzo, String telefono, String eta){
+        return !nome.isEmpty() && !cognome.isEmpty() && !indirizzo.isEmpty() && !telefono.isEmpty() && !eta.isEmpty();
+    }
+
+    //verifico la validità dei campi telefono ed età
+    private boolean soloNumeri(String s){
+        for (int i = 0; i < s.length(); i++) {
+            if (!Character.isDigit(s.charAt(i))) {
+                return false;
+            }
+        }
+        return true;
     }
 }

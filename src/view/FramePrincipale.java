@@ -41,13 +41,9 @@ public class FramePrincipale extends JFrame{
                 String telefono = ef.getTelefono();
                 int eta = ef.getEta();
 
-                if (ef.isValido()) {                    
-                    controller.addPersona(nome, cognome, indirizzo, telefono, eta);
-                    tabellaRubrica.aggiorna();
-                    CaricaFinestraPrincipale();
-                }else{
-                    JOptionPane.showMessageDialog(null, "Attenzione dati mancanti o non validi", "Attenzione", JOptionPane.WARNING_MESSAGE);
-                }
+                controller.addPersona(nome, cognome, indirizzo, telefono, eta);
+                tabellaRubrica.aggiorna();
+                CaricaFinestraPrincipale();
             }
         });
 
