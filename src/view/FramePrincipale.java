@@ -8,7 +8,7 @@ import src.model.Persona;
 import src.controller.Controller;
 
 import java.awt.BorderLayout;
-import java.util.ArrayList;
+import java.io.FileNotFoundException;
 
 public class FramePrincipale extends JFrame{
 
@@ -42,6 +42,16 @@ public class FramePrincipale extends JFrame{
                 int eta = ef.getEta();
 
                 controller.addPersona(nome, cognome, indirizzo, telefono, eta);
+            
+                //per ora salva ad ogni inserimento credo
+                try {
+                    controller.salvaDatiSuFile();
+                } catch (FileNotFoundException e) {
+                    e.printStackTrace();
+                }
+
+
+                
                 tabellaRubrica.aggiorna();
                 CaricaFinestraPrincipale();
             }

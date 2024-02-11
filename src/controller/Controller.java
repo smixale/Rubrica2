@@ -2,6 +2,7 @@ package src.controller;
 
 import src.model.Persona;
 
+import java.io.FileNotFoundException;
 import java.util.List;
 
 import src.model.Database;
@@ -21,5 +22,9 @@ public class Controller {
 
     public List<Persona> getRubrica (){
         return database.getPersone();
+    }
+
+    public void salvaDatiSuFile() throws FileNotFoundException{
+        database.salvaSuFile();
     }
 }
