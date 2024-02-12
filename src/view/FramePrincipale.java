@@ -33,7 +33,6 @@ public class FramePrincipale extends JFrame{
         strumentiForm.setFormListener(new FormListener(){
             @Override
             public void formEventListener(EventoForm ef){
-                System.out.println("AIUTATEMI PERCHE MI STO PERDENDO " + ef.getNome());
 
                 String nome  = ef.getNome();
                 String cognome = ef.getCognome();
@@ -41,23 +40,19 @@ public class FramePrincipale extends JFrame{
                 String telefono = ef.getTelefono();
                 int eta = ef.getEta();
 
-                controller.addPersona(nome, cognome, indirizzo, telefono, eta);
-            
-                //per ora salva ad ogni inserimento credo
                 try {
-                    controller.salvaDatiSuFile();
+                    controller.addPersona(nome, cognome, indirizzo, telefono, eta);
                 } catch (FileNotFoundException e) {
                     e.printStackTrace();
                 }
 
-
-                
                 tabellaRubrica.aggiorna();
                 CaricaFinestraPrincipale();
             }
         });
 
 
+        this.caricaDaFile();
 
         setLayout(new BorderLayout());
         add(tabellaRubrica,BorderLayout.CENTER);
@@ -102,5 +97,10 @@ public class FramePrincipale extends JFrame{
 
     public void setController(Controller controller) {
         this.controller = controller;
+    }
+
+    public void caricaDaFile(){
+        controller.caricaDaFile();
+        tabellaRubrica.aggiorna();
     }
 }

@@ -15,9 +15,10 @@ public class Controller {
         
     }
     
-    public void addPersona(String nome, String cognome, String indirizzo, String telefono, int eta){
+    public void addPersona(String nome, String cognome, String indirizzo, String telefono, int eta) throws FileNotFoundException{
         Persona persona = new Persona(nome, cognome, indirizzo, telefono, eta);
         database.addPersona(persona);
+        this.salvaDatiSuFile();
     }
 
     public List<Persona> getRubrica (){
@@ -26,5 +27,9 @@ public class Controller {
 
     public void salvaDatiSuFile() throws FileNotFoundException{
         database.salvaSuFile();
+    }
+
+    public void caricaDaFile (){
+        database.caricaDaFile();
     }
 }
