@@ -50,6 +50,10 @@ public class Controller {
     }
     
     public void addPersona(String nome, String cognome, String indirizzo, String telefono, int eta) throws FileNotFoundException{
+        if (this.selezionata != null) {
+            this.eliminaPersona();
+            this.setSelezionata(null);                              //riporto la variabile di selezione al default se necessario
+        }
         Persona persona = new Persona(nome, cognome, indirizzo, telefono, eta);
         database.addPersona(persona);
     }
@@ -77,19 +81,19 @@ public class Controller {
 
     //rimuovo la persona dal database, resetto la persona selezionata e aggiorno la tabella
     public void eliminaPersona (){
-        if (selezionata == null) {
-            throw new RuntimeException("Il programma è stato interrotto a causa di un errore.");
-        }
+        if (selezionata == null) {throw new RuntimeException("Il programma è stato interrotto a causa di un errore.");}
+        
         database.eliminaPersona(this.getSelezionata().getId());
         this.setSelezionata(null);                                  //riporto la variabile di selezione al default
         this.getTabellaRubrica().aggiorna();
     }
 
-    public void cancellaCampiForm(){
+    public void resetCampi(){
         this.getForm().resetCampi();
     }
 
     public void caricaPaginaPrincipale(){
+        this.getTabellaRubrica().aggiorna();
         this.frame.CaricaFinestraPrincipale();
     }
 
@@ -98,12 +102,9 @@ public class Controller {
     }
 
     public void modificaPersona(){
-        if (selezionata == null) {
-            throw new RuntimeException("Il programma è stato interrotto a causa di un errore.");
-        }
+        if (selezionata == null) {throw new RuntimeException("Il programma è stato interrotto a causa di un errore.");}
+
         this.getForm().caricaDatiDaModificare(selezionata);                     //passo alla form i dati della persona da modificare
         this.CaricaFinestraForm();
-        this.eliminaPersona();
-        this.setSelezionata(null);                                  //riporto la variabile di selezione al default
     }
 }

@@ -38,7 +38,6 @@ public class StrumentiFinestraPrincipale extends JPanel{
         this.elimina.setAlignmentX(RIGHT_ALIGNMENT);
         
         setActionListener();
-        this.nuovo.addActionListener(azioni);
     
         //this.modifica.addActionListener(azioni);
     }
@@ -47,6 +46,13 @@ public class StrumentiFinestraPrincipale extends JPanel{
     private void setActionListener(){
 
         this.nuovo.addActionListener(azioni);
+        this.nuovo.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e){
+                controller.resetCampi();
+                controller.CaricaFinestraForm();
+            }
+        });
 
         this.modifica.addActionListener(new ActionListener() {
             @Override

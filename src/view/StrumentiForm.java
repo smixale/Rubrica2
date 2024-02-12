@@ -56,7 +56,8 @@ public class StrumentiForm extends JPanel{
         annulla.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e){
-                controller.cancellaCampiForm();
+                controller.setSelezionata(null);
+                controller.resetCampi();
                 controller.caricaPaginaPrincipale();
             }
         });
