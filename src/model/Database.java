@@ -26,7 +26,7 @@ public class Database {
     }
 
     public void salvaSuFile() throws FileNotFoundException{
-        PrintStream ps = new PrintStream("C:\\github\\Rubrica\\Rubrica2\\src\\data\\Rubrica.txt");
+        PrintStream ps = new PrintStream("src\\data\\Rubrica.txt");
         for (Persona persona : rubrica) {
             ps.println(persona.getNome() + ";" + persona.getCognome() + ";" + persona.getIndirizzo() + ";" + persona.getTelefono() + ";" + persona.getEta());
         }
@@ -34,7 +34,7 @@ public class Database {
 
     public void caricaDaFile(){
 
-        File file = new File("C:\\github\\Rubrica\\Rubrica2\\src\\data\\Rubrica.txt");
+        File file = new File("src\\data\\Rubrica.txt");
         Scanner scanner;
 
         try {
@@ -57,13 +57,13 @@ public class Database {
 
                     this.addPersona(p);
                 }else{
-                    JOptionPane.showMessageDialog(null, "Errore durante il caricamento dei dati da la memoria", "Attenzione", JOptionPane.ERROR_MESSAGE);
+                    JOptionPane.showMessageDialog(null, "Errore durante il caricamento dei dati da la memoria", "Errore", JOptionPane.ERROR_MESSAGE);
                 }
             }
 
             scanner.close();
         } catch (FileNotFoundException e) {
-            JOptionPane.showMessageDialog(null, "Errore file non trovato", "Attenzione", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Errore file non trovato", "Errore", JOptionPane.ERROR_MESSAGE);
             e.printStackTrace();
         }
 

@@ -1,10 +1,7 @@
 package src.view;
 
 import javax.swing.JFrame;
-import javax.swing.JOptionPane;
-import javax.swing.JTextArea;
 
-import src.model.Persona;
 import src.controller.Controller;
 
 import java.awt.BorderLayout;
@@ -28,7 +25,9 @@ public class FramePrincipale extends JFrame{
         super("frame principale");
 
         this.controller = new Controller();
+
         tabellaRubrica.setData(controller.getRubrica());
+
 
         strumentiForm.setFormListener(new FormListener(){
             @Override
