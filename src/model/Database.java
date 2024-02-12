@@ -4,6 +4,8 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.PrintStream;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.Scanner;
 
 import javax.swing.JOptionPane;
@@ -16,8 +18,27 @@ public class Database {
         rubrica = new ArrayList<>();
     }
 
+    private void ordina(){
+
+        //ordino la lista primariamente rispetto al nome e secondariamente rispetto al cognome
+        Collections.sort(rubrica, new Comparator<Persona>() {
+            @Override
+            public int compare(Persona p1, Persona p2) {
+                return p1.getCognome().compareTo(p2.getCognome());
+            }
+        });
+
+        Collections.sort(rubrica, new Comparator<Persona>() {
+            @Override
+            public int compare(Persona p1, Persona p2) {
+                return p1.getNome().compareTo(p2.getNome());
+            }
+        });
+    }
+
     public void addPersona(Persona p){
         rubrica.add(p);
+        this.ordina();
         System.out.println("persona aggiunta: " + p.getNome());
     }
 
@@ -66,6 +87,7 @@ public class Database {
             JOptionPane.showMessageDialog(null, "Errore file non trovato", "Errore", JOptionPane.ERROR_MESSAGE);
             e.printStackTrace();
         }
+        this.ordina();
     }
 
     public Persona searchById(int id){
@@ -79,5 +101,6 @@ public class Database {
 
     public void eliminaPersona(int id){
         rubrica.remove(this.searchById(id));
+        this.ordina();
     }
 }
