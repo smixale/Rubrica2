@@ -5,6 +5,9 @@ import javax.swing.JFrame;
 import src.controller.Controller;
 
 import java.awt.BorderLayout;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
+import java.awt.event.WindowListener;
 import java.io.FileNotFoundException;
 
 public class FramePrincipale extends JFrame{
@@ -35,7 +38,18 @@ public class FramePrincipale extends JFrame{
         tabellaRubrica = new TabellaRubrica(controller);
         tabellaRubrica.setData(controller.getRubrica());
 
+        this.setListener();
 
+        this.caricaDaFile();
+
+        setLayout(new BorderLayout());
+        add(tabellaRubrica,BorderLayout.CENTER);
+        add(strumenti,BorderLayout.PAGE_END);
+        AspettoFrame();
+    }
+
+    //raggruppo l'aggiunta dei diversi listener alle componenti
+    private void setListener(){
         strumentiForm.setFormListener(new FormListener(){
             @Override
             public void formEventListener(EventoForm ef){
@@ -57,13 +71,16 @@ public class FramePrincipale extends JFrame{
             }
         });
 
-
-        this.caricaDaFile();
-
-        setLayout(new BorderLayout());
-        add(tabellaRubrica,BorderLayout.CENTER);
-        add(strumenti,BorderLayout.PAGE_END);
-        AspettoFrame();
+        addWindowListener(new WindowAdapter() {
+            @Override
+            public void windowClosing(WindowEvent e){
+                try {
+                    controller.salvaDatiSuFile();
+                } catch (FileNotFoundException e1) {
+                    e1.printStackTrace();
+                }
+            };
+        });
     }
 
     //caricamento componenti pagina principale rubrica
