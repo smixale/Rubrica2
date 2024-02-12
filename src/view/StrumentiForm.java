@@ -13,6 +13,7 @@ public class StrumentiForm extends JPanel{
 
     private JButton salva = new JButton("salva");
     private JButton annulla = new JButton("annulla");
+    private JButton aggiorna = new JButton("salva");
     private FormListener formListener;
     Controller controller;
 
@@ -30,6 +31,7 @@ public class StrumentiForm extends JPanel{
     }
 
     private void setActionListener(){
+
         salva.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -48,7 +50,6 @@ public class StrumentiForm extends JPanel{
                 }else{
                     JOptionPane.showMessageDialog(null, "Attenzione dati mancanti o non validi", "Attenzione", JOptionPane.WARNING_MESSAGE);
                 }
-
             }
         });
 
@@ -60,7 +61,6 @@ public class StrumentiForm extends JPanel{
             }
         });
     }
-
 
     public void setFormListener(FormListener formListener){
         this.formListener = formListener;

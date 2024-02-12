@@ -19,7 +19,7 @@ public class ModelloTabellaRubrica extends AbstractTableModel{
     //restituisce in numero di colonne della tabella
     @Override
     public int getColumnCount() {
-        return 5;
+        return 6;
     }
 
     //recuper un informazione specifica presente in una riga e colonna della tabella

@@ -81,7 +81,7 @@ public class Controller {
             throw new RuntimeException("Il programma è stato interrotto a causa di un errore.");
         }
         database.eliminaPersona(this.getSelezionata().getId());
-        this.setSelezionata(null);
+        this.setSelezionata(null);                                  //riporto la variabile di selezione al default
         this.getTabellaRubrica().aggiorna();
     }
 
@@ -101,7 +101,9 @@ public class Controller {
         if (selezionata == null) {
             throw new RuntimeException("Il programma è stato interrotto a causa di un errore.");
         }
-        this.getForm().caricaDatiDaModificare(selezionata);         //passo alla form i dati della persona da modificare
+        this.getForm().caricaDatiDaModificare(selezionata);                     //passo alla form i dati della persona da modificare
         this.CaricaFinestraForm();
+        this.eliminaPersona();
+        this.setSelezionata(null);                                  //riporto la variabile di selezione al default
     }
 }
