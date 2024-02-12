@@ -50,6 +50,8 @@ public class FramePrincipale extends JFrame{
 
     //raggruppo l'aggiunta dei diversi listener alle componenti
     private void setListener(){
+
+        //listener per gerstire la creazione di una nuova persona tramite form
         strumentiForm.setFormListener(new FormListener(){
             @Override
             public void formEventListener(EventoForm ef){
@@ -71,6 +73,7 @@ public class FramePrincipale extends JFrame{
             }
         });
 
+        //listener per gestire la chiusura del frame
         addWindowListener(new WindowAdapter() {
             @Override
             public void windowClosing(WindowEvent e){
@@ -106,7 +109,7 @@ public class FramePrincipale extends JFrame{
         repaint();
     }
 
-
+    //metodo che assegna le dimensioni e l'aspetto di default al frame
     private void AspettoFrame(){
         setSize(500,500);
         setLocationRelativeTo(null);

@@ -19,6 +19,22 @@ public class StrumentiFinestraPrincipale extends JPanel{
         this.nuovo = new JButton("nuovo");
         this.modifica = new JButton("modifica");
         this.elimina = new JButton("elimina");
+        
+
+        setLayout(new FlowLayout(FlowLayout.CENTER,20,10));
+
+        
+        add(nuovo);
+        add(modifica);
+        add(elimina);
+        
+        this.nuovo.setAlignmentX(LEFT_ALIGNMENT);
+        this.modifica.setAlignmentX(CENTER_ALIGNMENT);
+        this.elimina.setAlignmentX(RIGHT_ALIGNMENT);
+        
+        this.nuovo.addActionListener(azioni);
+
+        this.modifica.addActionListener(azioni);
 
         elimina.addActionListener(new ActionListener() {
             @Override
@@ -39,21 +55,6 @@ public class StrumentiFinestraPrincipale extends JPanel{
             }
             
         });
-        
-
-        setLayout(new FlowLayout(FlowLayout.CENTER,20,10));
-
-        
-        add(nuovo);
-        add(modifica);
-        add(elimina);
-        
-        this.nuovo.setAlignmentX(LEFT_ALIGNMENT);
-        this.modifica.setAlignmentX(CENTER_ALIGNMENT);
-        this.elimina.setAlignmentX(RIGHT_ALIGNMENT);
-        
-        this.nuovo.addActionListener(azioni);
-        this.modifica.addActionListener(azioni);
     }
     
 }
