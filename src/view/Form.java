@@ -7,6 +7,8 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
+import src.model.Persona;
+
 public class Form extends JPanel{
 
     private JLabel etichettaNome;
@@ -121,5 +123,13 @@ public class Form extends JPanel{
         campoIndirizzo.setText("");
         campoTelefono.setText("");
         campoEta.setText("");
+    }
+
+    public void caricaDatiDaModificare(Persona p){
+        this.campoNome.setText(p.getNome());
+        this.campoCognome.setText(p.getCognome());
+        this.campoIndirizzo.setText(p.getIndirizzo());
+        this.campoTelefono.setText(p.getTelefono());
+        this.campoEta.setText(Integer.toString(p.getEta()));
     }
 }

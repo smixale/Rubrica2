@@ -13,9 +13,14 @@ public class StrumentiFinestraPrincipale extends JPanel{
     private JButton nuovo;
     private JButton modifica;
     private JButton elimina;
+    AzioniPulsanti azioni;
+    Controller controller;
     
 
     public StrumentiFinestraPrincipale (AzioniPulsanti azioni, Controller controller){
+        this.azioni = azioni;
+        this.controller = controller;
+
         this.nuovo = new JButton("nuovo");
         this.modifica = new JButton("modifica");
         this.elimina = new JButton("elimina");
@@ -32,14 +37,33 @@ public class StrumentiFinestraPrincipale extends JPanel{
         this.modifica.setAlignmentX(CENTER_ALIGNMENT);
         this.elimina.setAlignmentX(RIGHT_ALIGNMENT);
         
+        setActionListener();
+        this.nuovo.addActionListener(azioni);
+    
+        //this.modifica.addActionListener(azioni);
+    }
+
+    //metodo che raggruppa gli action listener da aggiungere all e componenti
+    private void setActionListener(){
+
         this.nuovo.addActionListener(azioni);
 
-        this.modifica.addActionListener(azioni);
+        this.modifica.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e){
+                if (controller.getSelezionata() != null) {
+                    controller.modificaPersona();
+                }else{
+                    JOptionPane.showMessageDialog(null, "Nessun contatto selezionato per la modifica", "Errore", JOptionPane.ERROR_MESSAGE);
+                }
+            }
+        });
 
         elimina.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 if (controller.getSelezionata() != null) {
+                    //se la persona è stata selezionata
                     //yes=0 no=1
                     if (JOptionPane.showConfirmDialog(null, "Vuoi emiminare " + controller.getSelezionata().getNome() +" " + controller.getSelezionata().getCognome() +"?", "Confermi?", JOptionPane.YES_NO_OPTION) == 0) {
                         //se si sceglie si
@@ -50,6 +74,7 @@ public class StrumentiFinestraPrincipale extends JPanel{
                         //non succede nulla
                     }
                 }else{
+                    //se la persona non è stata selezionata
                     JOptionPane.showMessageDialog(null, "Nessun contatto selezionato per l'eliminazione", "Errore", JOptionPane.ERROR_MESSAGE);
                 }
             }

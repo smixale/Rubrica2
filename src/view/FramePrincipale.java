@@ -7,7 +7,6 @@ import src.controller.Controller;
 import java.awt.BorderLayout;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
-import java.awt.event.WindowListener;
 import java.io.FileNotFoundException;
 
 public class FramePrincipale extends JFrame{
@@ -87,7 +86,7 @@ public class FramePrincipale extends JFrame{
     }
 
     //caricamento componenti pagina principale rubrica
-    protected void CaricaFinestraPrincipale(){        
+    public void CaricaFinestraPrincipale(){        
         remove(strumentiForm);
         remove(form);
 
@@ -98,11 +97,10 @@ public class FramePrincipale extends JFrame{
     }
 
     //caricamento componenti form aggiunta persona in rubrica
-    protected void CaricaFinestraForm(){
+    public void CaricaFinestraForm(){
         remove(strumenti);
         remove(tabellaRubrica);
 
-        this.form.resetCampi();
         add(form,BorderLayout.CENTER);
         add(strumentiForm,BorderLayout.PAGE_END);
         revalidate();

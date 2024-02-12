@@ -77,8 +77,31 @@ public class Controller {
 
     //rimuovo la persona dal database, resetto la persona selezionata e aggiorno la tabella
     public void eliminaPersona (){
+        if (selezionata == null) {
+            throw new RuntimeException("Il programma è stato interrotto a causa di un errore.");
+        }
         database.eliminaPersona(this.getSelezionata().getId());
         this.setSelezionata(null);
         this.getTabellaRubrica().aggiorna();
+    }
+
+    public void cancellaCampiForm(){
+        this.getForm().resetCampi();
+    }
+
+    public void caricaPaginaPrincipale(){
+        this.frame.CaricaFinestraPrincipale();
+    }
+
+    public void CaricaFinestraForm(){
+        this.frame.CaricaFinestraForm();
+    }
+
+    public void modificaPersona(){
+        if (selezionata == null) {
+            throw new RuntimeException("Il programma è stato interrotto a causa di un errore.");
+        }
+        this.getForm().caricaDatiDaModificare(selezionata);         //passo alla form i dati della persona da modificare
+        this.CaricaFinestraForm();
     }
 }
