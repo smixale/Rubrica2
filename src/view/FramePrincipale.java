@@ -9,23 +9,30 @@ import java.io.FileNotFoundException;
 
 public class FramePrincipale extends JFrame{
 
-    AzioniPulsanti azioni = new AzioniPulsanti(this);
     Controller controller;
 
+    AzioniPulsanti azioni = new AzioniPulsanti(this);
 
-    Form form = new Form();
-    StrumentiForm strumentiForm = new StrumentiForm(azioni,form);
+    Form form;;
+    StrumentiForm strumentiForm;
 
-    StrumentiFinestraPrincipale strumenti = new StrumentiFinestraPrincipale(azioni);
-    private TabellaRubrica tabellaRubrica = new TabellaRubrica();
+    StrumentiFinestraPrincipale strumenti;
+    private TabellaRubrica tabellaRubrica;
 
 
 
     public FramePrincipale (){
         super("frame principale");
 
-        this.controller = new Controller();
+        this.controller = new Controller(this);
 
+        form = new Form();
+
+        strumenti = new StrumentiFinestraPrincipale(azioni, controller);
+
+        strumentiForm = new StrumentiForm(azioni, form, controller);
+
+        tabellaRubrica = new TabellaRubrica(controller);
         tabellaRubrica.setData(controller.getRubrica());
 
 
@@ -101,5 +108,21 @@ public class FramePrincipale extends JFrame{
     public void caricaDaFile(){
         controller.caricaDaFile();
         tabellaRubrica.aggiorna();
+    }
+
+    public Form getForm() {
+        return form;
+    }
+
+    public StrumentiForm getStrumentiForm() {
+        return strumentiForm;
+    }
+
+    public StrumentiFinestraPrincipale getStrumenti() {
+        return strumenti;
+    }
+
+    public TabellaRubrica getTabellaRubrica() {
+        return tabellaRubrica;
     }
 }

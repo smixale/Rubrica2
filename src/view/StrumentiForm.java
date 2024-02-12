@@ -3,6 +3,7 @@ import javax.swing.JButton;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
+import src.controller.Controller;
 
 import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
@@ -14,7 +15,7 @@ public class StrumentiForm extends JPanel{
     private JButton annulla = new JButton("annulla");
     private FormListener formListener;
 
-    public StrumentiForm(AzioniPulsanti azioni, Form form){
+    public StrumentiForm(AzioniPulsanti azioni, Form form, Controller controller){
         setLayout(new FlowLayout(FlowLayout.CENTER,20,10));
 
         add(salva);

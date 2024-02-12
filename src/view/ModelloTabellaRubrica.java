@@ -8,7 +8,7 @@ import src.model.Persona;
 public class ModelloTabellaRubrica extends AbstractTableModel{
 
     private List <Persona> rubrica;
-    private String[] nomiColonne = {"Nome", "Cognome", "Indirizzo", "Telefono", "Eta'"};
+    private String[] nomiColonne = {"ID", "Nome", "Cognome", "Indirizzo", "Telefono", "Eta'"};
 
     //restituisce il numero di righe dalla tabella
     @Override
@@ -30,18 +30,21 @@ public class ModelloTabellaRubrica extends AbstractTableModel{
         switch (columnIndex) {
 
             case 0:
-                return persona.getNome();
+                return persona.getId();
 
             case 1:
-                return persona.getCognome();
+                return persona.getNome();
 
             case 2:
-                return persona.getIndirizzo();
+                return persona.getCognome();
 
             case 3:
-                return persona.getTelefono();
+                return persona.getIndirizzo();
 
             case 4:
+                return persona.getTelefono();
+
+            case 5:
                 return persona.getEta();
         
             default:

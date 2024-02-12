@@ -66,9 +66,18 @@ public class Database {
             JOptionPane.showMessageDialog(null, "Errore file non trovato", "Errore", JOptionPane.ERROR_MESSAGE);
             e.printStackTrace();
         }
+    }
 
+    public Persona searchById(int id){
+        for (Persona p : rubrica) {
+            if (p.getId() == id) {
+                return p;
+            }
+        }
+        return null;
+    }
 
-       
-
+    public void eliminaPersona(int id){
+        rubrica.remove(this.searchById(id));
     }
 }
