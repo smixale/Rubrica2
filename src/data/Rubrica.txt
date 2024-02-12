@@ -1,6 +1,4 @@
 A;A;A;1;1
+A;ABN;A;5;5
 A;B;A;1;1
-A;C;A;1;1
-A;Z;A;1;1
-Alessandro;Peroni;M.ravel;389;22
 C;C;C;3;3
