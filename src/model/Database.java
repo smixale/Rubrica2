@@ -75,8 +75,6 @@ public class Database {
     
                     Persona p = new Persona(nome, cognome, indirizzo, telefono, eta);
 
-                    System.out.println("recupero " + nome + " dal file");
-
                     this.addPersona(p);
                 }else{
                     JOptionPane.showMessageDialog(null, "Errore durante il caricamento dei dati da la memoria", "Errore", JOptionPane.ERROR_MESSAGE);

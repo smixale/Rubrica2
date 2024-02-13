@@ -47,7 +47,6 @@ public class FramePrincipale extends JFrame{
 
         setLayout(new BorderLayout());
         
-        //controller.caricaPaginaPrincipale();
         controller.caricaPaginaLogin();
 
         AspettoFrame();
@@ -119,6 +118,7 @@ public class FramePrincipale extends JFrame{
             public void windowClosing(WindowEvent e){
                 try {
                     controller.salvaDatiSuFile();
+                    userController.salvaSuFile();
                 } catch (FileNotFoundException e1) {
                     e1.printStackTrace();
                 }
@@ -163,6 +163,7 @@ public class FramePrincipale extends JFrame{
 
     public void caricaDaFile(){
         controller.caricaDaFile();
+        userController.caricaDaFile();
         tabellaRubrica.aggiorna();
     }
 }

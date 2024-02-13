@@ -1,5 +1,7 @@
 package src.controller;
 
+import java.io.FileNotFoundException;
+
 import src.model.User;
 import src.model.UserDatabase;
 import src.view.FramePrincipale;
@@ -30,5 +32,17 @@ public class UserController {
 
     public PaginaLogin getPaginaLogin(){
         return this.frame.getPaginaLogin();
+    }
+
+    public void salvaSuFile() throws FileNotFoundException{
+        userDatabase.salvaSuFile();
+    }
+
+    public void caricaDaFile(){
+        userDatabase.caricaDaFile();
+    }
+
+    public void addUser(User user){
+        userDatabase.addUser(user);
     }
 }
