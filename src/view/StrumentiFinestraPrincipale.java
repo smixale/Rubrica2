@@ -20,9 +20,9 @@ public class StrumentiFinestraPrincipale extends JToolBar{
     public StrumentiFinestraPrincipale (Controller controller){
         this.controller = controller;
 
-        this.nuovo = new JButton("nuovo");
-        this.modifica = new JButton("modifica");
-        this.elimina = new JButton("elimina");
+        this.nuovo = new JButton("Nuovo");
+        this.modifica = new JButton("Modifica");
+        this.elimina = new JButton("Elimina");
         
 
         setLayout(new FlowLayout(FlowLayout.CENTER,20,10));

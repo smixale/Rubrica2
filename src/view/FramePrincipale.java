@@ -26,7 +26,7 @@ public class FramePrincipale extends JFrame{
 
     public FramePrincipale (){
 
-        super("frame principale");
+        super("Sistema rubrica");
 
         this.controller = new Controller(this);
         this.userController = new UserController(this);

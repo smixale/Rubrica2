@@ -11,8 +11,8 @@ import java.awt.event.ActionListener;
 
 public class StrumentiForm extends JToolBar{
 
-    private JButton salva = new JButton("salva");
-    private JButton annulla = new JButton("annulla");
+    private JButton salva = new JButton("Salva");
+    private JButton annulla = new JButton("Annulla");
     private FormListener formListener;
     private Controller controller;
 
