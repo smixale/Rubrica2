@@ -3,6 +3,7 @@ package src.view;
 import javax.swing.JFrame;
 
 import src.controller.Controller;
+import src.controller.UserController;
 
 import java.awt.BorderLayout;
 import java.awt.event.WindowAdapter;
@@ -11,39 +12,43 @@ import java.io.FileNotFoundException;
 
 public class FramePrincipale extends JFrame{
 
-    Controller controller;
+    public Controller controller;
+    public UserController userController;
 
-    AzioniPulsanti azioni = new AzioniPulsanti(this);
-
-    Form form;;
-    StrumentiForm strumentiForm;
-
-    StrumentiFinestraPrincipale strumenti;
     private TabellaRubrica tabellaRubrica;
+    public StrumentiFinestraPrincipale strumenti;
 
+    public Form form;;
+    public StrumentiForm strumentiForm;
 
+    public PaginaLogin paginaLogin;
+    public StrumentiLogin strumentiLogin;
 
     public FramePrincipale (){
         super("frame principale");
 
         this.controller = new Controller(this);
+        this.userController = new UserController();
 
         form = new Form();
 
-        strumenti = new StrumentiFinestraPrincipale(azioni, controller);
-
-        strumentiForm = new StrumentiForm(azioni, form, controller);
+        strumenti = new StrumentiFinestraPrincipale(controller);
+        strumentiForm = new StrumentiForm(controller);
+        strumentiLogin = new StrumentiLogin(userController);
 
         tabellaRubrica = new TabellaRubrica(controller);
         tabellaRubrica.setData(controller.getRubrica());
+        paginaLogin = new PaginaLogin(userController);
 
         this.setListener();
 
         this.caricaDaFile();
 
         setLayout(new BorderLayout());
-        add(tabellaRubrica,BorderLayout.CENTER);
-        add(strumenti,BorderLayout.PAGE_END);
+        
+        //controller.caricaPaginaPrincipale();
+        controller.caricaPaginaLogin();
+
         AspettoFrame();
     }
 
@@ -68,6 +73,7 @@ public class FramePrincipale extends JFrame{
                 }
 
                 tabellaRubrica.aggiorna();
+                
                 CaricaFinestraPrincipale();
             }
         });
@@ -83,6 +89,11 @@ public class FramePrincipale extends JFrame{
                 }
             };
         });
+    }
+
+    public void CaricaPaginaLogin(){
+        add(paginaLogin, BorderLayout.CENTER);
+        add(strumentiLogin, BorderLayout.PAGE_END);
     }
 
     //caricamento componenti pagina principale rubrica

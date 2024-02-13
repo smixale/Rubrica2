@@ -101,6 +101,10 @@ public class Controller {
         this.frame.CaricaFinestraForm();
     }
 
+    public void caricaPaginaLogin(){
+        this.frame.CaricaPaginaLogin();
+    }
+
     public void modificaPersona(){
         if (selezionata == null) {throw new RuntimeException("Il programma è stato interrotto a causa di un errore.");}
 

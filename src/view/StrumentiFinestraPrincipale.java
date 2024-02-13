@@ -13,12 +13,10 @@ public class StrumentiFinestraPrincipale extends JPanel{
     private JButton nuovo;
     private JButton modifica;
     private JButton elimina;
-    AzioniPulsanti azioni;
     Controller controller;
     
 
-    public StrumentiFinestraPrincipale (AzioniPulsanti azioni, Controller controller){
-        this.azioni = azioni;
+    public StrumentiFinestraPrincipale (Controller controller){
         this.controller = controller;
 
         this.nuovo = new JButton("nuovo");
@@ -45,7 +43,6 @@ public class StrumentiFinestraPrincipale extends JPanel{
     //metodo che raggruppa gli action listener da aggiungere all e componenti
     private void setActionListener(){
 
-        this.nuovo.addActionListener(azioni);
         this.nuovo.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e){

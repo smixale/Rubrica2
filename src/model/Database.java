@@ -13,6 +13,7 @@ import javax.swing.JOptionPane;
 public class Database {
 
     ArrayList<Persona> rubrica;
+    
 
     public Database(){
         rubrica = new ArrayList<>();
