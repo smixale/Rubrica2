@@ -59,6 +59,14 @@ public class PaginaLogin extends JPanel{
         add(campoPassworld,gbc);
     }
 
+    public JTextField getCampoUsername() {
+        return campoUsername;
+    }
+
+    public JTextField getCampoPassworld() {
+        return campoPassworld;
+    }
+
     public void resetCampi(){
         campoUsername.setText("");
         campoPassworld.setText("");

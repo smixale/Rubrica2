@@ -8,14 +8,10 @@ public class UserDatabase {
 
     public UserDatabase() {
         utenti = new ArrayList<>();
+        utenti.add(new User("admin", "admin"));
     }
 
-    public boolean isUser(User user){
-        for (User u : utenti) {
-            if (u.equals(user)) {
-                return true;
-            }
-        }
-        return false;
+    public boolean searchUser (User temp){
+        return utenti.contains(temp);
     }
 }

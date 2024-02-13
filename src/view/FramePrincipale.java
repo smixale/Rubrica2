@@ -25,10 +25,11 @@ public class FramePrincipale extends JFrame{
     public StrumentiLogin strumentiLogin;
 
     public FramePrincipale (){
+
         super("frame principale");
 
         this.controller = new Controller(this);
-        this.userController = new UserController();
+        this.userController = new UserController(this);
 
         form = new Form();
 
@@ -51,6 +52,32 @@ public class FramePrincipale extends JFrame{
 
         AspettoFrame();
     }
+
+    //strumenti controller----------------------------------------------
+    public Form getForm() {
+        return form;
+    }
+
+    public StrumentiForm getStrumentiForm() {
+        return strumentiForm;
+    }
+
+    public StrumentiFinestraPrincipale getStrumenti() {
+        return strumenti;
+    }
+
+    public TabellaRubrica getTabellaRubrica() {
+        return tabellaRubrica;
+    }
+
+    public PaginaLogin getPaginaLogin() {
+        return paginaLogin;
+    }
+
+    public StrumentiLogin getStrumentiLogin() {
+        return strumentiLogin;
+    }
+    //----------------------------------------------------------------------
 
     //raggruppo l'aggiunta dei diversi listener alle componenti
     private void setListener(){
@@ -75,6 +102,14 @@ public class FramePrincipale extends JFrame{
                 tabellaRubrica.aggiorna();
                 
                 CaricaFinestraPrincipale();
+            }
+        });
+
+        //listener per gestire un tentativo di login
+        strumentiLogin.setLoginListener(new LoginListener() {
+            @Override
+            public void loginEventListener(EventoLogin el){
+                System.out.println("tentativo login");
             }
         });
 
@@ -126,32 +161,8 @@ public class FramePrincipale extends JFrame{
         setVisible(true);
     }
 
-    public Controller getController() {
-        return controller;
-    }
-
-    public void setController(Controller controller) {
-        this.controller = controller;
-    }
-
     public void caricaDaFile(){
         controller.caricaDaFile();
         tabellaRubrica.aggiorna();
-    }
-
-    public Form getForm() {
-        return form;
-    }
-
-    public StrumentiForm getStrumentiForm() {
-        return strumentiForm;
-    }
-
-    public StrumentiFinestraPrincipale getStrumenti() {
-        return strumenti;
-    }
-
-    public TabellaRubrica getTabellaRubrica() {
-        return tabellaRubrica;
     }
 }

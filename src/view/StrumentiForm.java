@@ -14,7 +14,7 @@ public class StrumentiForm extends JPanel{
     private JButton salva = new JButton("salva");
     private JButton annulla = new JButton("annulla");
     private FormListener formListener;
-    Controller controller;
+    private Controller controller;
 
     public StrumentiForm(Controller controller){
 

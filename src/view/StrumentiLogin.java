@@ -9,11 +9,13 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 import src.controller.UserController;
+import src.model.User;
 
 public class StrumentiLogin extends JPanel{
     
     private JButton login = new JButton("Login");
     private JButton registrati = new JButton("Registrati");
+    public LoginListener loginListener;
     private UserController userController;
 
     public StrumentiLogin(UserController userController){
@@ -33,14 +35,20 @@ public class StrumentiLogin extends JPanel{
         login.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                if (verificaDati()) {
-                    if (userController.isUser(null)) {
-                        //TODO
-                    }else{
-                        JOptionPane.showMessageDialog(null, "Username o passworld errati", "Attenzione", JOptionPane.WARNING_MESSAGE);
-                    }
-                }else{
 
+                String username = userController.getPaginaLogin().getCampoUsername().getText();
+                String passworld = userController.getPaginaLogin().getCampoPassworld().getText();
+
+                User temp = new User(username, passworld);
+
+                //verifico se le credenziali esistono nel sistema
+                if (userController.searchUser(temp)) {
+                    //se esistono carico la finestra principale del sistema
+                    userController.CaricaFinestraPrincipale();
+                    System.out.println("login eseguito");
+                }else{
+                    //se non esistono avverto l'utente
+                    JOptionPane.showMessageDialog(null, "Username o passworld errati", "Attenzione", JOptionPane.WARNING_MESSAGE);
                 }
             }
         });
@@ -53,8 +61,7 @@ public class StrumentiLogin extends JPanel{
         });
     }
 
-    private boolean verificaDati(){
-        //TODO evento login
-        return true;
+    public void setLoginListener(LoginListener loginListener){
+        this.loginListener = loginListener;
     }
 }

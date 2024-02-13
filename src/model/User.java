@@ -25,4 +25,11 @@ public class User {
     public void setPassworld(String passworld) {
         this.passworld = passworld;
     }
+
+    @Override
+    public boolean equals(Object obj) {
+        //due utenti sono uguali se hanno la stessa passworld e username
+        User other = (User) obj;
+        return this.getUsername().equals(other.getUsername()) && this.getPassworld().equals(other.getPassworld());
+    }
 }
