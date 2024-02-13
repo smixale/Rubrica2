@@ -2,13 +2,14 @@ package src.view;
 import java.awt.FlowLayout;
 import javax.swing.JButton;
 import javax.swing.JOptionPane;
-import javax.swing.JPanel;
+import javax.swing.JToolBar;
+
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import src.controller.Controller;
 
-public class StrumentiFinestraPrincipale extends JPanel{
+public class StrumentiFinestraPrincipale extends JToolBar{
     
     private JButton nuovo;
     private JButton modifica;

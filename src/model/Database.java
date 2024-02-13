@@ -40,7 +40,6 @@ public class Database {
     public void addPersona(Persona p){
         rubrica.add(p);
         this.ordina();
-        System.out.println("persona aggiunta: " + p.getNome());
     }
 
     public ArrayList<Persona> getPersone (){

@@ -6,12 +6,12 @@ import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
 import javax.swing.JOptionPane;
-import javax.swing.JPanel;
+import javax.swing.JToolBar;
 
 import src.controller.UserController;
 import src.model.User;
 
-public class StrumentiLogin extends JPanel{
+public class StrumentiLogin extends JToolBar{
     
     private JButton login = new JButton("Login");
     private JButton registrati = new JButton("Registrati");

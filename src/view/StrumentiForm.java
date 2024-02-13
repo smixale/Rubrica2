@@ -1,7 +1,7 @@
 package src.view;
 import javax.swing.JButton;
 import javax.swing.JOptionPane;
-import javax.swing.JPanel;
+import javax.swing.JToolBar;
 
 import src.controller.Controller;
 
@@ -9,7 +9,7 @@ import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class StrumentiForm extends JPanel{
+public class StrumentiForm extends JToolBar{
 
     private JButton salva = new JButton("salva");
     private JButton annulla = new JButton("annulla");
